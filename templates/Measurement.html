@@ -50,38 +50,38 @@
                         <div class="card-body">
                             <h5 class="card-title">Distance</h5>
                             <div class="input-group mb-4 mt-4">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
+                                <select id="distance" class="form-select mx-2">
+                                    <option value="select">Select</option>
+                                    <option value="m">meter (m)</option>
+                                    <option value="cm">centimeter (cm)</option>
+                                    <option value="km">kilometer (km)</option>
+                                    <option value="mm">millimeter (mm)</option>
+                                    <option value="mi">mile (mi)</option>
+                                    <option value="yd">yard (yd)</option>
+                                    <option value="ft">foot (ft)</option>
+                                    <option value="in">inch (in)</option>
+                                </select>
                                 <input type="text" class="form-control" aria-label="Text input with dropdown button">
                             </div>
                             <div class="input-group mb-4 mt-4">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
+                                <select id="distance" class="form-select mx-2">
+                                    <option value="select">Select</option>
+                                    <option value="m">meter (m)</option>
+                                    <option value="cm">centimeter (cm)</option>
+                                    <option value="km">kilometer (km)</option>
+                                    <option value="mm">millimeter (mm)</option>
+                                    <option value="mi">mile (mi)</option>
+                                    <option value="yd">yard (yd)</option>
+                                    <option value="ft">foot (ft)</option>
+                                    <option value="in">inch (in)</option>
+                                </select>
                                 <input type="text" class="form-control" aria-label="Text input with dropdown button">
                             </div>
                         </div>
-
                         <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
+                            <div class="d-grid gap-2 col-4 mx-auto">
+                                <button class="btn btn-primary" type="button">Convert</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,49 +90,84 @@
                         <div class="card-body">
                             <h5 class="card-title">Weight</h5>
                             <div class="input-group mb-4 mt-4">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
+                                <select id="weight" class="form-select mx-2">
+                                    <option value="select">Select</option>
+                                    <option value="kg">kilogram (kg)</option>
+                                    <option value="g">gram (g)</option>
+                                    <option value="mg">milligram (mg)</option>
+                                    <option value="lb">pound (lb)</option>
+                                    <option value="oz">ounce (oz)</option>
+                                    <option value="t">ton (t)</option>
+                                </select>
                                 <input type="text" class="form-control" aria-label="Text input with dropdown button">
                             </div>
                             <div class="input-group mb-4 mt-4">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
+                                <select id="weight" class="form-select mx-2">
+                                    <option value="select">Select</option>
+                                    <option value="kg">kilogram (kg)</option>
+                                    <option value="g">gram (g)</option>
+                                    <option value="mg">milligram (mg)</option>
+                                    <option value="lb">pound (lb)</option>
+                                    <option value="oz">ounce (oz)</option>
+                                    <option value="t">ton (t)</option>
+                                </select>
                                 <input type="text" class="form-control" aria-label="Text input with dropdown button">
                             </div>
                         </div>
 
                         <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
+                            <div class="d-grid gap-2 col-4 mx-auto">
+                                <button class="btn btn-primary" type="button">Convert</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                   <div class="mb-3">
-              <label class="form-label">Category</label>
-              <select id="category" class="form-select">
-                <option value="distance">Distance</option>
-                <option value="weight">Weight</option>
-                <option value="volume">Volume</option>
-              </select>
-            </div>
+
+                <div class="col">
+                    <div class="card mx-2 my-2 shadow p-3 mb-5 bg-body-tertiary rounded">
+                        <div class="card-body">
+                            <h5 class="card-title">Volume</h5>
+                            <div class="input-group mb-4 mt-4">
+                                <select id="volume" class="form-select mx-2">
+                                    <option value="select">Select</option>
+                                    <option value="l">liter (l)</option>
+                                    <option value="ml">milliliter (ml)</option>
+                                    <option value="m3">cubic meter (m³)</option>
+                                    <option value="ft3">cubic foot (ft³)</option>
+                                    <option value="in3">cubic inch (in³)</option>
+                                    <option value="gal">gallon (gal)</option>
+                                    <option value="qt">quart (qt)</option>
+                                    <option value="pt">pint (pt)</option>
+                                    <option value="cup">cup (cup)</option>
+                                    <option value="floz">fluid ounce (fl oz)</option>
+                                </select>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            </div>
+                            <div class="input-group mb-4 mt-4">
+                                <select id="volume" class="form-select mx-2">
+                                    <option value="select">Select</option>
+                                    <option value="l">liter (l)</option>
+                                    <option value="ml">milliliter (ml)</option>
+                                    <option value="m3">cubic meter (m³)</option>
+                                    <option value="ft3">cubic foot (ft³)</option>
+                                    <option value="in3">cubic inch (in³)</option>
+                                    <option value="gal">gallon (gal)</option>
+                                    <option value="qt">quart (qt)</option>
+                                    <option value="pt">pint (pt)</option>
+                                    <option value="cup">cup (cup)</option>
+                                    <option value="floz">fluid ounce (fl oz)</option>
+                                </select>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="d-grid gap-2 col-4 mx-auto">
+                                <button class="btn btn-primary" type="button">Convert</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
