@@ -1,7 +1,11 @@
 from django.shortcuts import render
 # Create your views here.
+<<<<<<< Updated upstream
 from django.http import HttpResponse
 
+=======
+from django.http import HttpResponse 
+>>>>>>> Stashed changes
 
 
 
@@ -12,6 +16,7 @@ def Currency(request):
     return render(request,'Currency.html')
 
 def Measurement(request):
+<<<<<<< Updated upstream
     return render(request, 'Measurement.html')
 
 def Time(request):
@@ -22,3 +27,6 @@ def About(request):
 
 def Temperature(request):
     return render(request,'Temperature.html')
+=======
+    return render(request, 'Measurement.html')
+>>>>>>> Stashed changes
