@@ -18,8 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from app.views import *
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('h',homepage,name='homepage'),
-
+    path('index/', index, name='index'),
+    path('Currency/', Currency,name='Currency'),
+    path('Measurement/', Measurement, name='Measurement'),
+    path('Time/', Time, name='Time'),
+    path('About/',About,name='About'),
+    path('Temperature/', Temperature, name='Temperature'),
+    
 ]
