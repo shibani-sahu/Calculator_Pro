@@ -24,11 +24,8 @@ urlpatterns = [
     path('index/', index, name='index'),
     path('Currency/', Currency,name='Currency'),
     path('Measurement/', Measurement, name='Measurement'),
-<<<<<<< Updated upstream
     path('Time/', Time, name='Time'),
     path('About/',About,name='About'),
     path('Temperature/', Temperature, name='Temperature'),
     
-=======
->>>>>>> Stashed changes
 ]
