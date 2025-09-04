@@ -91,3 +91,51 @@ const neonCheck = () => {
     document.getElementById('neonResult').innerText = result;
 }
 document.getElementById('checkNeon').addEventListener('click', neonCheck);
+
+const harshadCheck = () => {
+    const num = document.getElementById('harshadInput').value;
+    let sum = 0;
+    for (let char of num) {
+        sum += parseInt(char);
+    }
+    const result = (parseInt(num) % sum === 0) ? `${num} is a Harshad Number.` : `${num} is not a Harshad Number.`;
+    document.getElementById('harshadResult').innerText = result;
+}
+document.getElementById('checkHarshad').addEventListener('click', harshadCheck);
+
+const happyCheck = () => {
+    let num = document.getElementById('happyInput').value;
+    let cnum = num;
+    const seen = new Set();
+    while (num !== 1 && !seen.has(num)) {
+        seen.add(num);
+        let sum = 0;
+        for (let char of num.toString()) {
+            sum += Math.pow(parseInt(char), 2);
+        }
+        num = sum;
+    }
+    const result = (num === 1) ? `${cnum} is a Happy Number.` : `${cnum} is not a Happy Number.`;
+    document.getElementById('happyResult').innerText = result;
+}
+document.getElementById('checkHappy').addEventListener('click', happyCheck);
+
+const perfectCheck = () => {
+    const num = document.getElementById('perfectInput').value;
+    let sum = 0;
+    for (let i = 1; i <= num / 2; i++) {
+        if (num % i === 0) {
+            sum += i;
+        }
+    }
+    const result = (sum === parseInt(num)) ? `${num} is a Perfect Number.` : `${num} is not a Perfect Number.`;
+    document.getElementById('perfectResult').innerText = result;
+}
+document.getElementById('checkPerfect').addEventListener('click', perfectCheck);
+
+const buzzCheck = () => {
+    const num = document.getElementById('buzzInput').value;
+    const result = (num % 7 === 0 || num.toString().endsWith('7')) ? `${num} is a Buzz Number.` : `${num} is not a Buzz Number.`;
+    document.getElementById('buzzResult').innerText = result;
+}
+document.getElementById('checkBuzz').addEventListener('click', buzzCheck);
