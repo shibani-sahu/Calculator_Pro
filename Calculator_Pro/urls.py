@@ -27,5 +27,6 @@ urlpatterns = [
     path('Time/', Time, name='Time'),
     path('About/',About,name='About'),
     path('Temperature/', Temperature, name='Temperature'),
+    path('CheckNumbers/', CheckNumbers, name='CheckNumbers')
     
 ]

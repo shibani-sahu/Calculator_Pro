@@ -16,6 +16,8 @@ def About(request):
     return render(request, 'About.html')
 def Temperature(request):
     return render(request,'Temperature.html')
+def CheckNumbers(request):
+    return render(request, 'CheckNumbers.html')
 
     
 
