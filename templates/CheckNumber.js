@@ -28,3 +28,32 @@ const evenOddCheck = () => {
     document.getElementById('evenOddResult').innerText = result;
 }
 document.getElementById('checkEvenOdd').addEventListener('click', evenOddCheck);
+
+const armstrongCheck = () => {
+    const number = document.getElementById('armstrongInput').value;
+    const numStr = number.toString();
+    const numDigits = numStr.length;
+    let sum = 0;
+    for (let char of numStr) {
+        sum += Math.pow(parseInt(char), numDigits);
+    }
+    const result = (sum === parseInt(number)) ? `${number} is an Armstrong Number.` : `${number} is not an Armstrong Number.`;
+    document.getElementById('armstrongResult').innerText = result;
+}
+document.getElementById('checkArmstrong').addEventListener('click', armstrongCheck);
+
+const strongCheck = () => {
+    const num = document.getElementById('strongInput').value;
+    let sum = 0;
+    for (let char of num) {
+        let digit = parseInt(char);
+        let fact = 1;
+        for (let i = 1; i <= digit; i++) {
+            fact *= i;
+        }
+        sum += fact;
+    }
+    const result = (sum === parseInt(num)) ? `${num} is a Strong Number.` : `${num} is not a Strong Number.`;
+    document.getElementById('strongResult').innerText = result;
+}
+document.getElementById('checkStrong').addEventListener('click', strongCheck);
