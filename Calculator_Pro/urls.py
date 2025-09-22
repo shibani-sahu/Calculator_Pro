@@ -29,6 +29,15 @@ urlpatterns = [
     path('Temperature/', Temperature, name='Temperature'),
     path('CheckNumbers/', CheckNumbers, name='CheckNumbers'),
     path('FindNumbers/', FindNumbers, name='FindNumbers'),
-    
+    path('prime/',prime,name='prime'),
+    path('Palindrome/', Palindrome, name='Palindrome'),
+    path('Armstrong/', Armstrong, name='Armstrong'),
+    path('EvenOdd/', EvenOdd, name='EvenOdd'),
+    path('Harshad/', Harshad, name='Harshad'),
+    path('Perfect/', Perfect, name='Perfect'),
+    '''path('Strong/', Strong, name='Strong'),
+    path('Buzz/', Buzz, name='Buzz'),
+    path('Neon/', Neo)
+    '''
     
 ]
