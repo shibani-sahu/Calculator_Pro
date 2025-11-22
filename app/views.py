@@ -3,26 +3,20 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
-
 def index(request):
     return render(request,'index.html')
-
 
 def Currency(request):
     return render(request,'Currency.html')
 
-
 def Measurement(request):
     return render(request, 'Measurement.html')
-
 
 def Time(request):
     return render(request, 'Time.html')
 
-
 def About(request):
     return render(request, 'About.html')
-
 
 def Temperature(request):
     return render(request,'Temperature.html')
@@ -31,38 +25,38 @@ def FindNumbers(request):
     return render(request, 'FindNumbers.html') 
 
 def prime(request):
-    if request.method=='POST':
-        n=int(request.POST['n'])
-        if n>1:
-            for i in range(2,n//2+1):
-                if n%i==0:
-                    return HttpResponse(False)
-        
+    result = ""
+    if request.method == "POST":
+        n = int(request.POST.get("n"))
+        if n > 1:
+            for i in range(2, int(n/2) + 1):
+                if n % i == 0:
+                    result = f"{n} is not a prime number"
+                    break
             else:
-                return HttpResponse(True)
+                result = f"{n} is a prime number"
         else:
-            return HttpResponse(False)
-    return render(request,'CheckNumbers.html')
+            result = f"{n} is not a prime number"
+    return render(request, "CheckNumbers.html", {"primeResult": result})
+
 
 def Palindrome(request):
+    result =""
     if request.method=='POST':
         n=int(request.POST['n'])
         n1=n
         rev=0
-        
         while n1>0:
             r=n1%10
             n1=n1//10
             rev=rev*10+r
         print(rev)
         print(n)
-        
-
         if n==rev:
-            return HttpResponse(True)
+            result = f"{n} is a palindrome number"
         else:
-            return HttpResponse(False)
-    return render(request,'CheckNumbers.html')
+            result = f"{n} is not a palindrome number"
+    return render(request,'CheckNumbers.html',{"palindromeResult":result})
 
 def Armstrong(request):
     if request.method=='POST':
