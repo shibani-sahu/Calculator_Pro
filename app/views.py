@@ -128,73 +128,14 @@ def Buzz(request):
         else:
             return HttpResponse(False)  
     return render(request, 'CheckNumbers.html')
-'''
-def Strong(request):
-     if request.method=='POST':
-        n=int(request.POST['n'])
-        n1 = n
-        sum_fact = 0
-        while n1 > 0:
-            rem = n1 % 10
-            fact = 1
-            for i in range(1, rem + 1):
-                fact *= i
 
-            sum_fact += fact
-            n1 //= 10
-
-        if sum_fact == n:
-            return HttpResponse(True)
-        else:
-            return HttpResponse(False)      
-    return render(request, 'CheckNumbers.html')
-
-def Happy(request):
-     if request.method=='POST':
-        n=int(request.POST['n'])
-        new = set()
-        while n != 1 and n not in visited:
-            new.add(num)
-            sum_sq = 0
-            while num > 0:
-                digit = num % 10
-                sum_sq += digit * digit
-                num //= 10
-            
-            num = sum_sq
-
-        if num == 1:
-            print("Happy number")
-        else:
-            print("Not a Happy number")
-
-    return render(request, 'CheckNumbers.html')
-
-def Automorphic(request):
-     if request.method=='POST':
-        n=int(request.POST['n'])
-
-    
-
-def Spy(request):
-     if request.method=='POST':
-        n=int(request.POST['n'])
-
-   
-def Neon(request):
-     if request.method=='POST':
-        n=int(request.POST['n'])
-        square = n * n
-        sum = 0
-        while square > 0:
-            sum += square % 10
-            square //= 10
-
-        if sum == n:
-            return HttpResponse(True)
-        else:
-            return HttpResponse(False)
-'''   
 
 def CheckNumbers(request):
     return render(request, 'CheckNumbers.html')
+
+
+
+
+
+
+
