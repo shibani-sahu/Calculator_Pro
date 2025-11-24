@@ -102,6 +102,57 @@ def EvenOdd(request):
             result = f"{n} is Odd"
     return render(request, 'CheckNumbers.html',{"evenOddResult":result})
 
+def Automorphic(request):
+    result=""
+    if request.method=='POST':
+        n=int(request.POST['n'])
+        square=n*n
+        str_n=str(n)
+        str_square=str(square)
+        if str_square.endswith(str_n):
+            result=f"{n} is an Automorphic number"
+        else:
+            result = f"{n} is not an Automorphic number"
+    return render(request, 'CheckNumbers.html',{"automorphicResult":result})
+
+def spy(request):
+    result=""
+    if request.method=='POST':
+        n=int(request.POST['n'])
+        n1=n
+        sum=0
+        prod=1
+        while n1>0:
+            r=n1%10
+            sum+=r
+            prod*=r
+            n1=n1//10
+        if sum==prod:
+            result=f"{n} is a Spy number"
+        else:
+            result = f"{n} is not a Spy number"
+    return render(request, 'CheckNumbers.html',{"spyResult":result})
+
+def Happy(request):
+    result=""
+    if request.method=='POST':
+        n=int(request.POST['n'])
+        n1=n
+        seen=set()
+        while n1!=1 and n1 not in seen:
+            seen.add(n1)
+            sum=0
+            while n1>0:
+                r=n1%10
+                sum+=r**2
+                n1=n1//10
+            n1=sum
+        if n1==1:
+            result=f"{n} is a Happy number"
+        else:
+            result = f"{n} is not a Happy number"
+    return render(request, 'CheckNumbers.html',{"happyResult":result})
+
 def Harshad(request):
     if request.method=='POST':
         n=int(request.POST['n'])

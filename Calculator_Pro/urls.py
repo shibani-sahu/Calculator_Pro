@@ -36,6 +36,9 @@ urlpatterns = [
     path('EvenOdd/', EvenOdd, name='EvenOdd'),
     path('Harshad/', Harshad, name='Harshad'),
     path('Perfect/', Perfect, name='Perfect'),
+    path('Automorphic/', Automorphic, name='Automorphic'),
+    path('spy/', spy, name='spy'),
+    path('Happy/', Happy, name='Happy'),
     
     
 ]
