@@ -56,6 +56,7 @@ def Palindrome(request):
         else:
             result = f"{n} is not a palindrome number"
     return render(request,'CheckNumbers.html',{"palindromeResult": result})
+
 def Strong(request):
     result=""
     if request.method=='POST':
@@ -88,19 +89,19 @@ def Armstrong(request):
         if n==An:
             result=f"{n} is an Armstrong number"
         else:
-            result = f"{n} is not a Armstrong  number"
-    return render(request, 'CheckNumbers.html',{"ArmstrongResult":result})
+            result = f"{n} is not an Armstrong  number"
+    return render(request, 'CheckNumbers.html',{"armstrongResult":result})
 
 def EvenOdd(request):
+    result=""
     if request.method=='POST':
         n=int(request.POST['n'])
         if n%2==0:
-            return HttpResponse('Even')
+            result = f"{n} is Even"
         else:
-            return HttpResponse('Odd')
-        
-    return render(request, 'CheckNumbers.html')
-        
+            result = f"{n} is Odd"
+    return render(request, 'CheckNumbers.html',{"evenOddResult":result})
+
 def Harshad(request):
     if request.method=='POST':
         n=int(request.POST['n'])

@@ -139,25 +139,26 @@
                             <h5 class="card-title">Strong Number</h5>
                             <form method="POST" action="{% url 'Strong' %}">
                                 {% csrf_token %}
-                            <div class="mb-3 d-flex align-items-center justify-content-center mt-4">
-                                <label class="form-label">Enter a Number : </label>
-                                <input type="text" name='n' id="n" placeholder="Enter a value" style="width: 50%;" required />
-                            </div>
-                            <div class="d-grid gap-2 col-4 mx-auto">
-                                <button class="btn btn-primary"  type="submit">Check</button>
-                            </div>
+                                <div class="mb-3 d-flex align-items-center justify-content-center mt-4">
+                                    <label class="form-label">Enter a Number : </label>
+                                    <input type="text" name='n' id="n" placeholder="Enter a value" style="width: 50%;"
+                                        required />
+                                </div>
+                                <div class="d-grid gap-2 col-4 mx-auto">
+                                    <button class="btn btn-primary" type="submit">Check</button>
+                                </div>
                             </form>
                         </div>
                         <div class="card d-flex align-items-center">
                             <label class="form-label d-flex align-items-start">
-                                Result : 
+                                Result :
                                 <span id="strongResult">
                                     {% if strongResult %}
                                     {{ strongResult }}
                                     {% else %}
                                     Enter a Number to Check
                                     {% endif %}
-                                </span> 
+                                </span>
                             </label>
                         </div>
                     </div>
@@ -166,23 +167,29 @@
                     <div class="card mx-2 my-2 shadow p-3 mb-5 bg-body-tertiary rounded">
                         <div class="card-body">
                             <h5 class="card-title">Armstrong Number</h5>
-                            <div class="mb-3 d-flex align-items-center justify-content-center mt-4">
-                                <form method="POST" action="{% url 'Armstrong' %}">
-                                    {% csrf_token %}
+                            <form method="POST" action="{% url 'Armstrong' %}">
+                                {% csrf_token %}
+                                <div class="mb-3 d-flex align-items-center justify-content-center mt-4">
                                     <label class="form-label">Enter a Number : </label>
-                                    <input type="text" name='n' id="n" placeholder="Enter a value"
-                                        style="width: 50%;" />
-                                </form>
-                            </div>
+                                    <input type="text" name='n' id="n" placeholder="Enter a value" style="width: 50%;"
+                                        required />
+                                </div>
+                                <div class="d-grid gap-2 col-4 mx-auto">
+                                    <button class="btn btn-primary" type="submit">Check</button>
+                                </div>
+                            </form>
                         </div>
                         <div class="card d-flex align-items-center">
-                            <label class="form-label d-flex align-items-start">Result : <span id="armstrongResult">Enter
-                                    a Number to Check</span> </label>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-grid gap-2 col-4 mx-auto">
-                                <button class="btn btn-primary" id="checkArmstrong" type="button">Check</button>
-                            </div>
+                            <label class="form-label d-flex align-items-start">
+                                Result :
+                                <span id="armstrongResult">
+                                    {% if armstrongResult %}
+                                    {{ armstrongResult }}
+                                    {% else %}
+                                    Enter a Number to Check
+                                    {% endif %}
+                                </span>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -191,23 +198,29 @@
                     <div class="card mx-2 my-2 shadow p-3 mb-5 bg-body-tertiary rounded">
                         <div class="card-body">
                             <h5 class="card-title">Even or Odd Number</h5>
-                            <div class="mb-3 d-flex align-items-center justify-content-center mt-4">
-                                <form method="POST" action="{% url 'EvenOdd' %}">
-                                    {% csrf_token %}
+                            <form method="POST" action="{% url 'EvenOdd' %}">
+                                {% csrf_token %}
+                                <div class="mb-3 d-flex align-items-center justify-content-center mt-4">
                                     <label class="form-label">Enter a Number : </label>
-                                    <input type="text" name='n' id="n" placeholder="Enter a value"
-                                        style="width: 50%;" />
-                                </form>
-                            </div>
+                                    <input type="text" name='n' id="n" placeholder="Enter a value" style="width: 50%;"
+                                        required />
+                                </div>
+                                <div class="d-grid gap-2 col-4 mx-auto">
+                                    <button class="btn btn-primary" type="submit">Check</button>
+                                </div>
+                            </form>
                         </div>
                         <div class="card d-flex align-items-center">
-                            <label class="form-label d-flex align-items-start">Result : <span id="evenOddResult">Enter a
-                                    Number to Check</span> </label>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-grid gap-2 col-4 mx-auto">
-                                <button class="btn btn-primary" id="checkEvenOdd" type="button">Check</button>
-                            </div>
+                            <label class="form-label d-flex align-items-start">
+                                Result :
+                                <span id="evenOddResult">
+                                    {% if evenOddResult %}
+                                    {{ evenOddResult }}
+                                    {% else %}
+                                    Enter a Number to Check
+                                    {% endif %}
+                                </span>
+                            </label>
                         </div>
                     </div>
                 </div>
