@@ -56,6 +56,24 @@ def Palindrome(request):
         else:
             result = f"{n} is not a palindrome number"
     return render(request,'CheckNumbers.html',{"palindromeResult": result})
+def Strong(request):
+    result=""
+    if request.method=='POST':
+        n=int(request.POST['n'])
+        n1=n
+        Sn=0
+        while n1>0:
+            r=n1%10
+            fact=1
+            for i in range(1,r+1):
+                fact=fact*i
+            Sn+=fact
+            n1=n1//10
+        if n==Sn:
+            result=f"{n} is a Strong number"
+        else:
+            result = f"{n} is not a Strong number"
+    return render(request, 'CheckNumbers.html',{"strongResult":result})
 
 def Armstrong(request):
     result=""

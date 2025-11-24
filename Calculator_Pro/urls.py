@@ -31,6 +31,7 @@ urlpatterns = [
     path('FindNumbers/', FindNumbers, name='FindNumbers'),
     path('prime/',prime,name='prime'),
     path('Palindrome/', Palindrome, name='Palindrome'),
+    path('Strong/', Strong, name='Strong'),
     path('Armstrong/', Armstrong, name='Armstrong'),
     path('EvenOdd/', EvenOdd, name='EvenOdd'),
     path('Harshad/', Harshad, name='Harshad'),
