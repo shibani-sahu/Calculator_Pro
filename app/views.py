@@ -50,15 +50,15 @@ def Palindrome(request):
             r=n1%10
             n1=n1//10
             rev=rev*10+r
-        print(rev)
-        print(n)
+       
         if n==rev:
             result = f"{n} is a palindrome number"
         else:
             result = f"{n} is not a palindrome number"
-    return render(request,'CheckNumbers.html',{"palindromeResult":result})
+    return render(request,'CheckNumbers.html',{"palindromeResult": result})
 
 def Armstrong(request):
+    result=""
     if request.method=='POST':
         n=int(request.POST['n'])
         n1=n
@@ -68,10 +68,10 @@ def Armstrong(request):
             n1= n1//10
             An+=r**len(str(n))
         if n==An:
-            return HttpResponse(True)
+            result=f"{n} is an Armstrong number"
         else:
-            return HttpResponse(False)
-    return render(request, 'CheckNumbers.html')
+            result = f"{n} is not a Armstrong  number"
+    return render(request, 'CheckNumbers.html',{"ArmstrongResult":result})
 
 def EvenOdd(request):
     if request.method=='POST':

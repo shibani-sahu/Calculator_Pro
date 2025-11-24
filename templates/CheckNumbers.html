@@ -112,14 +112,24 @@
                             </div>
                         </form>
                         </div>
-                        <div class="card d-flex align-items-center">
-                            <label class="form-label d-flex align-items-start">Result : <span id="palindromeResult">Enter a Number to Check</span> </label>
-                        </div>
+                        
                         <div class="card-body">
                             <div class="d-grid gap-2 col-4 mx-auto">
-                                <form>
-                                <input type="submit" class="btn btn-primary">
+                                <form >
+                                <button type="submit" class="btn btn-primary">Check</button>
                                 </form>
+                            </div>
+                            <div class="card d-flex align-items-center">
+                                <label class="form-label">
+                                    Result:
+                                    <span id="palindromeResult">
+                                        {% if palindromeResult %}
+                                            {{ palindromeResult }}
+                                        {% else %}
+                                            Enter a Number to Check
+                                        {% endif %}
+                                    </span>
+                                </label>
                             </div>
                         </div>
                     </div>
