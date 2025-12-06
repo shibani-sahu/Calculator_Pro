@@ -9,8 +9,96 @@ def index(request):
 def Currency(request):
     return render(request,'Currency.html')
 
+# Measurement Conversion
+# Conversion tables
+distance_units = {
+    "m": 1,
+    "cm": 0.01,
+    "km": 1000,
+    "mm": 0.001,
+    "mi": 1609.34,
+    "yd": 0.9144,
+    "ft": 0.3048,
+    "in": 0.0254,
+}
+
+weight_units = {
+    "kg": 1,
+    "g": 0.001,
+    "mg": 0.000001,
+    "lb": 0.453592,
+    "oz": 0.0283495,
+    "t": 1000,
+}
+
+volume_units = {
+    "l": 1,
+    "ml": 0.001,
+    "m3": 1000,
+    "ft3": 28.3168,
+    "in3": 0.0163871,
+    "gal": 3.78541,
+    "qt": 0.946353,
+    "pt": 0.473176,
+    "cup": 0.24,
+    "floz": 0.0295735,
+}
+
+def convert(value, from_unit, to_unit, table):
+    value = float(value)
+    base = value * table[from_unit]
+    return round(base / table[to_unit], 6)
+
+
+
 def Measurement(request):
-    return render(request, 'Measurement.html')
+    context = {
+        "distance_result": "",
+        "weight_result": "",
+        "volume_result": ""
+    }
+
+    if request.method == "POST":
+        # DISTANCE
+        if "distance_btn" in request.POST:
+            try:
+                value = float(request.POST.get("distance_value"))
+                unit_from = request.POST.get("distance_from")
+                unit_to = request.POST.get("distance_to")
+
+                result = value * distance_units[unit_from] / distance_units[unit_to]
+                context["distance_result"] = f"{result:.4f}"
+
+            except:
+                context["distance_result"] = "Invalid Input"
+
+        # WEIGHT
+        elif "weight_btn" in request.POST:
+            try:
+                value = float(request.POST.get("weight_value"))
+                unit_from = request.POST.get("weight_from")
+                unit_to = request.POST.get("weight_to")
+
+                result = value * weight_units[unit_from] / weight_units[unit_to]
+                context["weight_result"] = f"{result:.4f}"
+
+            except:
+                context["weight_result"] = "Invalid Input"
+
+        # VOLUME
+        elif "volume_btn" in request.POST:
+            try:
+                value = float(request.POST.get("volume_value"))
+                unit_from = request.POST.get("volume_from")
+                unit_to = request.POST.get("volume_to")
+
+                result = value * volume_units[unit_from] / volume_units[unit_to]
+                context["volume_result"] = f"{result:.4f}"
+
+            except:
+                context["volume_result"] = "Invalid Input"
+
+    return render(request, "Measurement.html", context)
 
 def Time(request):
     return render(request, 'Time.html')
@@ -24,6 +112,7 @@ def Temperature(request):
 def FindNumbers(request):
     return render(request, 'FindNumbers.html') 
 
+# Number Checking Functions
 def prime(request):
     result = ""
     if request.method == "POST":
@@ -39,7 +128,6 @@ def prime(request):
             result = f"{n} is not a prime number"
     return render(request, "CheckNumbers.html", {"primeResult": result})
 
-
 def Palindrome(request):
     result =""
     if request.method=='POST':
@@ -50,7 +138,6 @@ def Palindrome(request):
             r=n1%10
             n1=n1//10
             rev=rev*10+r
-       
         if n==rev:
             result = f"{n} is a palindrome number"
         else:

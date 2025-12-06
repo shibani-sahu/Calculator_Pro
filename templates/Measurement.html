@@ -6,53 +6,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Measurement</title>
-    <link rel="stylesheet" href="{% static 'css/style.css/' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" href="https://www.freeiconspng.com/uploads/calculator-icon-0.png" type="image/x-icon">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
+
     <!-- navbar -->
-   <nav class="navbar navbar-expand-lg bg-primary navbar-dark ">
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark ">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}"><i class="bi bi-calculator"></i> SmartCalc</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}"><i class="bi bi-house-door"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'Measurement' %}"><i class="bi bi-beaker"></i> Measurement</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'Currency' %}"><i class="bi bi-currency-exchange"></i> Currency</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'Temperature' %}"><i class="bi bi-thermometer-sun"></i> Temperature</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'Time' %}"><i class="bi bi-alarm"></i> Time</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'CheckNumbers' %}"><i class="bi bi-building-fill-check"></i> Check Numbers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'FindNumbers' %}"><i class="bi bi-building-fill-check"></i> Find Numbers</a>
+
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}">
+                        <i class="bi bi-house-door"></i> Home</a></li>
+
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'Measurement' %}">
+                        <i class="bi bi-beaker"></i> Measurement</a></li>
+
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'Currency' %}">
+                        <i class="bi bi-currency-exchange"></i> Currency</a></li>
+
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'Temperature' %}">
+                        <i class="bi bi-thermometer-sun"></i> Temperature</a></li>
+
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'Time' %}">
+                        <i class="bi bi-alarm"></i> Time</a></li>
+
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'CheckNumbers' %}">
+                        <i class="bi bi-building-fill-check"></i> Check Numbers</a></li>
+
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'FindNumbers' %}">
+                        <i class="bi bi-building-fill-check"></i> Find Numbers</a></li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item me-2">
+                        <a class="nav-link active" href="{% url 'About' %}">
+                            <i class="bi bi-info-circle"></i> About</a>
                     </li>
                 </ul>
-                <div class="d-flex">
-                    <ul class="navbar-nav">
-                        <li class="nav-item me-2">
-                            <a class="nav-link active" href="{% url 'About' %}"><i class="bi bi-info-circle"></i> About</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
     </nav>
@@ -61,15 +63,22 @@
     <!-- Measurement -->
     <div class="container mt-4">
         <h2 class="text-center p-3">Measurement Converter</h2>
+
         <div class="container text-center">
             <div class="row m-auto">
+
+                <!-- ====================== DISTANCE ====================== -->
                 <div class="col">
                     <div class="card mx-2 my-2 shadow p-3 mb-5 bg-body-tertiary rounded">
-                        <div class="card-body">
-                            <h5 class="card-title">Distance</h5>
+
+                        <h5 class="card-title mt-2">Distance</h5>
+
+                        <form method="POST">
+                            {% csrf_token %}
+
+                            <!-- From -->
                             <div class="input-group mb-4 mt-4">
-                                <select id="distance" class="form-select mx-2">
-                                    <option value="select">Select</option>
+                                <select name="distance_from" class="form-select mx-2" required>
                                     <option value="m">meter (m)</option>
                                     <option value="cm">centimeter (cm)</option>
                                     <option value="km">kilometer (km)</option>
@@ -79,11 +88,12 @@
                                     <option value="ft">foot (ft)</option>
                                     <option value="in">inch (in)</option>
                                 </select>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                                <input type="number" step="any" name="distance_value" class="form-control" required>
                             </div>
+
+                            <!-- To -->
                             <div class="input-group mb-4 mt-4">
-                                <select id="distance" class="form-select mx-2">
-                                    <option value="select">Select</option>
+                                <select name="distance_to" class="form-select mx-2" required>
                                     <option value="m">meter (m)</option>
                                     <option value="cm">centimeter (cm)</option>
                                     <option value="km">kilometer (km)</option>
@@ -93,23 +103,29 @@
                                     <option value="ft">foot (ft)</option>
                                     <option value="in">inch (in)</option>
                                 </select>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+
+                                <input type="text" class="form-control" value="{{ distance_result }}" readonly>
                             </div>
-                        </div>
-                        <div class="card-body">
+
                             <div class="d-grid gap-2 col-4 mx-auto">
-                                <button class="btn btn-primary" type="button">Convert</button>
+                                <button name="distance_btn" class="btn btn-primary" type="submit">Convert</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
+
+                <!-- ====================== WEIGHT ====================== -->
                 <div class="col">
                     <div class="card mx-2 my-2 shadow p-3 mb-5 bg-body-tertiary rounded">
-                        <div class="card-body">
-                            <h5 class="card-title">Weight</h5>
+
+                        <h5 class="card-title mt-2">Weight</h5>
+
+                        <form method="POST">
+                            {% csrf_token %}
+
+                            <!-- From -->
                             <div class="input-group mb-4 mt-4">
-                                <select id="weight" class="form-select mx-2">
-                                    <option value="select">Select</option>
+                                <select name="weight_from" class="form-select mx-2" required>
                                     <option value="kg">kilogram (kg)</option>
                                     <option value="g">gram (g)</option>
                                     <option value="mg">milligram (mg)</option>
@@ -117,11 +133,12 @@
                                     <option value="oz">ounce (oz)</option>
                                     <option value="t">ton (t)</option>
                                 </select>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                                <input type="number" step="any" name="weight_value" class="form-control" required>
                             </div>
+
+                            <!-- To -->
                             <div class="input-group mb-4 mt-4">
-                                <select id="weight" class="form-select mx-2">
-                                    <option value="select">Select</option>
+                                <select name="weight_to" class="form-select mx-2" required>
                                     <option value="kg">kilogram (kg)</option>
                                     <option value="g">gram (g)</option>
                                     <option value="mg">milligram (mg)</option>
@@ -129,25 +146,29 @@
                                     <option value="oz">ounce (oz)</option>
                                     <option value="t">ton (t)</option>
                                 </select>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                            </div>
-                        </div>
 
-                        <div class="card-body">
-                            <div class="d-grid gap-2 col-4 mx-auto">
-                                <button class="btn btn-primary" type="button">Convert</button>
+                                <input type="text" class="form-control" value="{{ weight_result }}" readonly>
                             </div>
-                        </div>
+
+                            <div class="d-grid gap-2 col-4 mx-auto">
+                                <button name="weight_btn" class="btn btn-primary" type="submit">Convert</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
+                <!-- ====================== VOLUME ====================== -->
                 <div class="col">
                     <div class="card mx-2 my-2 shadow p-3 mb-5 bg-body-tertiary rounded">
-                        <div class="card-body">
-                            <h5 class="card-title">Volume</h5>
+
+                        <h5 class="card-title mt-2">Volume</h5>
+
+                        <form method="POST">
+                            {% csrf_token %}
+
+                            <!-- From -->
                             <div class="input-group mb-4 mt-4">
-                                <select id="volume" class="form-select mx-2">
-                                    <option value="select">Select</option>
+                                <select name="volume_from" class="form-select mx-2" required>
                                     <option value="l">liter (l)</option>
                                     <option value="ml">milliliter (ml)</option>
                                     <option value="m3">cubic meter (m³)</option>
@@ -159,11 +180,13 @@
                                     <option value="cup">cup (cup)</option>
                                     <option value="floz">fluid ounce (fl oz)</option>
                                 </select>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+
+                                <input type="number" step="any" name="volume_value" class="form-control" required>
                             </div>
+
+                            <!-- To -->
                             <div class="input-group mb-4 mt-4">
-                                <select id="volume" class="form-select mx-2">
-                                    <option value="select">Select</option>
+                                <select name="volume_to" class="form-select mx-2" required>
                                     <option value="l">liter (l)</option>
                                     <option value="ml">milliliter (ml)</option>
                                     <option value="m3">cubic meter (m³)</option>
@@ -175,31 +198,28 @@
                                     <option value="cup">cup (cup)</option>
                                     <option value="floz">fluid ounce (fl oz)</option>
                                 </select>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                            </div>
-                        </div>
 
-                        <div class="card-body">
-                            <div class="d-grid gap-2 col-4 mx-auto">
-                                <button class="btn btn-primary" type="button">Convert</button>
+                                <input type="text" class="form-control" value="{{ volume_result }}" readonly>
                             </div>
-                        </div>
+
+                            <div class="d-grid gap-2 col-4 mx-auto">
+                                <button name="volume_btn" class="btn btn-primary" type="submit">Convert</button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
 
             </div>
         </div>
-
-
     </div>
-    <!-- end Measurement -->
-     <!-- Footer -->
+
+    <!-- Footer -->
     <footer class="bg-primary text-white text-center py-1 mt-5 fixed-bottom">
         <p class="mb-0">&copy; 2025 SmartCalc. All Rights Reserved.</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
