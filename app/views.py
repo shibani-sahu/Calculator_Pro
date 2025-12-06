@@ -154,45 +154,58 @@ def Happy(request):
     return render(request, 'CheckNumbers.html',{"happyResult":result})
 
 def Harshad(request):
+    result=""
     if request.method=='POST':
         n=int(request.POST['n'])
         n1=n
-        Hn=0
+        sum=0
         while n1>0:
             r=n1%10
+            sum+=r
             n1=n1//10
-            Hn+=r
-        if n%Hn==0:
-            return HttpResponse(True)
+        if n%sum==0:
+            result=f"{n} is a Harshad number"
         else:
-            return HttpResponse(False)
-
-    return render(request, 'CheckNumbers.html') 
+            result = f"{n} is not a Harshad number"
+    return render(request, 'CheckNumbers.html',{"harshadResult":result})
 
 def Perfect(request):
+    result=""
     if request.method=='POST':
         n=int(request.POST['n'])
         sum=0
-        i=1
-        while i<n:
+        for i in range(1,n):
             if n%i==0:
                 sum+=i
-            i+=1
         if sum==n:
-            return HttpResponse(True)
+            result=f"{n} is a Perfect number"
         else:
-            return HttpResponse(False)
-    return render(request, 'CheckNumbers.html') 
+            result = f"{n} is not a Perfect number"
+    return render(request, 'CheckNumbers.html',{"perfectResult":result})
 
 def Buzz(request):
+    result=""
     if request.method=='POST':
         n=int(request.POST['n'])
-        if n % 7 == 0 or n % 10 == 7:
-            return HttpResponse(True)
+        if n%7==0 or str(n).endswith('7'):
+            result=f"{n} is a Buzz number"
         else:
-            return HttpResponse(False)  
-    return render(request, 'CheckNumbers.html')
+            result = f"{n} is not a Buzz number"
+    return render(request, 'CheckNumbers.html',{"buzzResult":result})
 
+def Neon(request):
+    result=""
+    if request.method=='POST':
+        n=int(request.POST['n'])
+        square=n*n
+        sum=0
+        for digit in str(square):
+            sum+=int(digit)
+        if sum==n:
+            result=f"{n} is a Neon number"
+        else:
+            result = f"{n} is not a Neon number"
+    return render(request, 'CheckNumbers.html',{"neonResult":result})
 
 def CheckNumbers(request):
     return render(request, 'CheckNumbers.html')

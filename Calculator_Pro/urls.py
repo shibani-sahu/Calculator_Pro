@@ -39,6 +39,6 @@ urlpatterns = [
     path('Automorphic/', Automorphic, name='Automorphic'),
     path('spy/', spy, name='spy'),
     path('Happy/', Happy, name='Happy'),
-    
-    
-]
+    path('Neon/', Neon, name='Neon'),
+    path('Buzz/', Buzz, name='Buzz'),
+    ]
