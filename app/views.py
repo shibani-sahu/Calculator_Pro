@@ -6,9 +6,6 @@ from django.http import HttpResponse
 def index(request):
     return render(request,'index.html')
 
-def Currency(request):
-    return render(request,'Currency.html')
-
 # Measurement Conversion
 # Conversion tables
 distance_units = {
@@ -100,14 +97,8 @@ def Measurement(request):
 
     return render(request, "Measurement.html", context)
 
-def Time(request):
-    return render(request, 'Time.html')
-
 def About(request):
     return render(request, 'About.html')
-
-def Temperature(request):
-    return render(request,'Temperature.html')
 
 def FindNumbers(request):
     return render(request, 'FindNumbers.html') 
